@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {Route, withRouter ,Switch} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import auth0Client from './Auth';
+import Callback from './callback';
+import List from './Container/list/list';
+import NavBar from './Component/Navbar/navBar';
+import Home from './Component/Home';
+
+class App extends Component {
+  render() {
+    let route=<Switch>
+   <Route exact path='/callback' component={Callback}/>
+    <Route path='/' component={Home}></Route>
+    </Switch>
+
+    if(auth0Client.isAuthenticated()){
+      route=<Switch>
+      <Route exact path='/callback' component={Callback}/>
+      <Route exact path='/list' component={List}/>
+      </Switch>
+    }
+    return (
+      <div>
+        <NavBar></NavBar>
+
+        {route}
+
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);
