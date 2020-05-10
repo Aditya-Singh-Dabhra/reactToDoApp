@@ -7,7 +7,7 @@ class Auth {
       domain: 'dev-mrt5f3nj.auth0.com',
       audience: 'https://dev-mrt5f3nj.auth0.com/userinfo',
       clientID: 'UnxHh8iAwQdA2SIJyrHePZJDnxzwCCJM',
-      redirectUri: 'https://ancient-garden-52379.herokuapp.com/callback',
+      redirectUri: 'http://localhost:3000/callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });

@@ -9,6 +9,7 @@
   .item {
     min-height: 70px;
     display: flex;
+    word-break: break-all;
     align-items: center;
     border-bottom: 1px solid #F1F1F1;
   }
