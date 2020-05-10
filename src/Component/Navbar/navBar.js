@@ -12,7 +12,7 @@ function NavBar(props) {
   return (
     <nav className={classes.Toolbar}>
       <Link className="navbar-brand" to={auth0Client.isAuthenticated()?'/list':'/'}>
-        Q&App
+        To-Do App
       </Link>
       {
         !auth0Client.isAuthenticated() &&
